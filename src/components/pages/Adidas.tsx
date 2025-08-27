@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import adidasModel1 from './../../assets/AdiFOM_TRXN_Shoes_Black_IG7453_01_standard.webp'
 import adidasModel2 from "./../../assets/PostMove_Mid_Cloudfoam_Super_Lifestyle_Basketball_Mid_Classic_Shoes_Black_GY7163_01_standard.webp"
 import adidasModel3 from "./../../assets/Superstar_XLG_Shoes_Black_IG9777_01_standard.webp"
+import styles from "./../Site.module.css"
 
 
 export type Item = {
@@ -45,11 +46,11 @@ export const Adidas = () => {
 
     return (
         <div>
-            <h2> ADIDAS</h2>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <h2 className={styles.title}> ADIDAS</h2>
+            <div style={{display:'flex', gap:'15px', justifyContent:'center', marginBottom:'30px'}}>
                 {adidasArr.map((adidas, index) => (
-                    <Link key={index} to={`/adidas/${adidas.id}`}>
-                        <img src={adidas.picture} alt={adidas.model} style={{ width: '200px', height: 'auto', marginRight: '10px' }} />
+                    <Link key={index} to={`/adidas/${adidas.id}`} >
+                        <img src={adidas.picture} alt={adidas.model} className={styles.productCard} />
                     </Link>
                 ))}
             </div>

@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate } from "react-router-dom";
+import { createBrowserRouter, Link, Navigate } from "react-router-dom";
 import { App } from "../App";
 import { Error404 } from "../components/pages/Error404";
 import { Adidas, Item } from "../components/pages/Adidas";
@@ -6,6 +6,7 @@ import { Puma } from "../components/pages/Puma";
 import { Abibas } from "../components/pages/Abibas";
 import { Prices } from "../components/pages/Prices";
 import { Model } from "../components/pages/Model";
+import styles from './../components/Site.module.css'
 
 export const PATH = {
     adidas: "/adidas",
@@ -44,6 +45,19 @@ async function modelLoader({ params }: any) {
     }
 }
 
+export const ModelError = () => {
+   
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <div>Модель не найдена</div>
+            <Link to={PATH.adidas} className={styles.buttonLink}>
+                Вернуться на главную страницу
+            </Link>
+        </div>
+    );
+};
+
+
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -74,6 +88,7 @@ export const router = createBrowserRouter([
                 path: PATH.model,
                 element: <Model />,
                 loader: modelLoader,
+                errorElement: <ModelError />
             },
         ]
     }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import styles from './Prices.module.css';
+import styles from './../Site.module.css';
 
 type Props = {};
 export const Prices = (props: Props) => {
@@ -55,8 +55,8 @@ export const Prices = (props: Props) => {
 
     return (
         <div>
-            <button onClick={handleOnSale} className={styles.buttonStyle}>On sale</button>
-            <button onClick={handleReset} className={styles.buttonStyle}>Reset filter</button>
+            <button onClick={handleOnSale} className={styles.buttonLink} style={{marginRight:'10px', marginBottom:'15px'}}>On sale</button>
+            <button onClick={handleReset} className={styles.buttonLink} style={{marginBottom:'15px'}}>Reset filter</button>
 
             <table className={styles.tableStyle}>
                 <thead>

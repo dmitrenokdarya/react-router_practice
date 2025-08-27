@@ -1,11 +1,5 @@
-import { Navigate, NavLink, Outlet, Route, Routes } from "react-router-dom";
+import { NavLink, Outlet} from "react-router-dom";
 import styles from "./components/Site.module.css";
-import { Error404 } from "./components/pages/Error404";
-import { Adidas, adidasArr } from "./components/pages/Adidas"
-import { Puma, pumaArr } from "./components/pages/Puma"
-import { Abibas } from "./components/pages/Abibas"
-import { Model } from "./components/pages/Model";
-import { Prices } from "./components/pages/Prices";
 import { PATH } from "./routes/Router";
 
 

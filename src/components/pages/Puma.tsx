@@ -3,6 +3,7 @@ import pumaModel1 from './../../assets/puma7034001917.jpg'
 import pumaModel2 from "./../../assets/puma7129837928.jpg"
 import pumaModel3 from "./../../assets/puma7072973522.jpg"
 import { Item } from './Adidas';
+import styles from "./../Site.module.css"
 
 export const pumaArr: Item[] = [
     {
@@ -35,11 +36,11 @@ export const pumaArr: Item[] = [
 export const Puma = () => {
     return (
         <div>
-            <h2>PUMA</h2>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <h2 className={styles.title}>PUMA</h2>
+            <div style={{display:'flex', gap:'15px', justifyContent:'center', marginBottom:'30px'}}>
                 {pumaArr.map((puma, index) => (
-                    <Link key={index} to={`/puma/${puma.id}`}>
-                        <img src={puma.picture} alt={puma.model} style={{ width: '200px', height: 'auto', marginRight: '10px' }} />
+                    <Link key={index} to={`/adidas/${puma.id}`} >
+                        <img src={puma.picture} alt={puma.model} className={styles.productCard} />
                     </Link>
                 ))}
             </div>

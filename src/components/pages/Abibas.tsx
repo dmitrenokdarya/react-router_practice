@@ -1,7 +1,9 @@
+import styles from "./../Site.module.css"
+
 export const Abibas = () => {
     return (
         <div>
-            <h2> ABIBAS</h2>
+            <h2 className={styles.title}> ABIBAS</h2>
             <p>
                 What is Lorem Ipsum?
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
