@@ -47,6 +47,8 @@ export const App = () => {
 
             <Route path={PATH.abibas} element={<Abibas />} />
 
+            <Route path={PATH.prices} element={<Prices />} />
+
             <Route path={PATH.error404} element={<Error404 />} />
 
             <Route path={PATH.main} element={<Navigate to={PATH.adidas} />} />
