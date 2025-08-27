@@ -1,32 +1,27 @@
-import { Link, useParams } from "react-router-dom"
+import { Link, useLoaderData } from "react-router-dom"
 import { Item } from "./Adidas"
-import { PATH } from "../../App"
-import styles from './../Site.module.css';
-
-type ModelPropsType = {
-    arr: Item[]
-}
+import { PATH } from "../../routes/Router"
+import styles from './../Site.module.css'
 
 
-export const Model = ({ arr }: ModelPropsType) => {
-    const params = useParams()
-    const ourModel = arr.find((a) => a.id === Number(params.id))
-    if (!ourModel) {
+export const Model = () => {
+    const { product } = useLoaderData() as { product: Item }
+    if (!product) {
         return (<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <div>Модель не найдена</div>
             <Link to={PATH.adidas} className={styles.buttonLink}>Вернуться на главную страницу</Link>
         </div>)
     } else {
-        return (
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
 
-                <h1>{ourModel.model}</h1>
-                <h2>{ourModel.collection}</h2>
-                <h3>{ourModel.price}</h3>
+            <h1>{product.model}</h1>
+            <h2>{product.collection}</h2>
+            <h3>{product.price}</h3>
 
-                <img src={ourModel.picture} alt={ourModel.model} style={{ width: '700px', height: 'auto', marginBottom: '60px' }} />
-            </div>
-        )
-    }
+            <img src={product.picture} alt={product.model} style={{ width: '700px', height: 'auto', marginBottom: '60px' }} />
+        </div>
+    )
+}
 }

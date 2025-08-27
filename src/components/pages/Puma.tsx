@@ -7,6 +7,7 @@ import { Item } from './Adidas';
 export const pumaArr: Item[] = [
     {
         id: 1,
+        brand: 'Puma',
         model: 'PUMA Suede Classic Jr',
         collection: 'new collection8',
         price: '100200$',
@@ -15,6 +16,7 @@ export const pumaArr: Item[] = [
     },
     {
         id: 2,
+        brand: 'Puma',
         model: 'PUMA Rebound Layup Sl',
         collection: 'new collection35',
         price: '200300$',
@@ -22,6 +24,7 @@ export const pumaArr: Item[] = [
     },
     {
         id: 3,
+        brand: 'Puma',
         model: 'PUMA Speedcat',
         collection: 'new collection678',
         price: '300400$',

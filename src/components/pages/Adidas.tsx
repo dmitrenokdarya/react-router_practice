@@ -6,6 +6,7 @@ import adidasModel3 from "./../../assets/Superstar_XLG_Shoes_Black_IG9777_01_sta
 
 export type Item = {
     id: number,
+    brand: string,
     model: string;
     collection: string;
     price: string;
@@ -14,6 +15,7 @@ export type Item = {
 export const adidasArr: Item[] = [
     {
         id: 1,
+        brand: 'Adidas',
         model: 'ADIDAS ADIFOM TRXN',
         collection: 'new collection1',
         price: '100200$',
@@ -22,6 +24,7 @@ export const adidasArr: Item[] = [
     },
     {
         id: 2,
+        brand: 'Adidas',
         model: 'ADIDAS ADIFOM SUPER',
         collection: 'new collection22',
         price: '200300$',
@@ -29,6 +32,7 @@ export const adidasArr: Item[] = [
     },
     {
         id: 3,
+        brand: 'Adidas',
         model: 'ADIDAS SUPER SUPERSKI',
         collection: 'new collection333',
         price: '300400$',
