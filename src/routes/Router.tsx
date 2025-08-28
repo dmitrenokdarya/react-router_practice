@@ -1,8 +1,8 @@
 import { createHashRouter, Link, Navigate } from "react-router-dom";
 import { App } from "../App";
 import { Error404 } from "../components/pages/Error404";
-import { Adidas, Item } from "../components/pages/Adidas";
-import { Puma } from "../components/pages/Puma";
+import { Adidas, adidasArr, Item } from "../components/pages/Adidas";
+import { Puma, pumaArr } from "../components/pages/Puma";
 import { Abibas } from "../components/pages/Abibas";
 import { Prices } from "../components/pages/Prices";
 import { Model } from "../components/pages/Model";
@@ -25,17 +25,20 @@ export const PATH = {
 
 async function modelLoader({ params }: any) {
     const { brand, id } = params;
-    const lowerCaseBrand = brand.toLowerCase()
+    const brandLower = brand.toLowerCase();
 
     try {
-        const module = await import(`../components/pages/${brand}`);
-        const brandData = (module as any)[`${lowerCaseBrand}Arr`];
+        let product;
 
-        if (!brandData) {
+        if (brandLower === 'adidas') {
+            product = adidasArr.find(item => item.id === parseInt(id));
+        }
+        else if (brandLower === 'puma') {
+            product = pumaArr.find(item => item.id === parseInt(id));
+        }
+        else {
             throw new Response("Brand not found", { status: 404 });
         }
-
-        const product = brandData.find((i: Item) => i.id === parseInt(id));
 
         if (!product) {
             throw new Response("Product not found", { status: 404 });
@@ -94,7 +97,7 @@ export const router = createHashRouter([
             },
             {
                 path: PATH.protectedPage,
-                element:(
+                element: (
                     <ProtectedRoute>
                         <ProtectedPage />
                     </ProtectedRoute>
