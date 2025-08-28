@@ -1,4 +1,4 @@
-import { createHashRouter, Link, Navigate } from "react-router-dom";
+import { createHashRouter, Link, Navigate, Outlet, RouteObject } from "react-router-dom";
 import { App } from "../App";
 import { Error404 } from "../components/pages/Error404";
 import { Adidas, adidasArr } from "../components/pages/Adidas";
@@ -8,15 +8,18 @@ import { Prices } from "../components/pages/Prices";
 import { Model } from "../components/pages/Model";
 import styles from './../components/Site.module.css'
 import { ProtectedPage } from "../components/pages/ProtectedPage";
-import { ProtectedRoute } from "./ProtectedRoute";
+import { Login } from "../components/pages/Login";
+import { use, useEffect, useState } from "react";
+import { useAuth } from "../components/pages/AuthContext";
+
 
 export const PATH = {
     error: "/error",
+    login: "/login",
     adidas: "/adidas",
     puma: "/puma",
     abibas: "/abibas",
     prices: "/prices",
-    // error404: "*",
     main: "/",
     model: "/:brand/:id",
     protectedPage: "/protectedPage",
@@ -64,6 +67,56 @@ export const ModelError = () => {
 };
 
 
+export const ProtectedRoute = () => {
+    const { isAuthenticated } = useAuth(); 
+    return isAuthenticated ? <Outlet /> : <Navigate to={PATH.login} replace />;
+}
+
+const publicRoutes: RouteObject[] = [
+    {
+        path: PATH.login,
+        element: <Login />,
+    },
+    {
+        path: PATH.error,
+        element: <Error404 />,
+    },
+    {
+        path: PATH.adidas,
+        element: <Adidas />,
+    },
+    {
+        path: PATH.puma,
+        element: <Puma />,
+    },
+    {
+        path: PATH.abibas,
+        element: <Abibas />,
+    },
+    {
+        path: PATH.prices,
+        element: <Prices />,
+    },
+    {
+        path: PATH.main,
+        element: <Navigate to={PATH.adidas} />,
+    },
+    {
+        path: PATH.model,
+        element: <Model />,
+        loader: modelLoader,
+        errorElement: <ModelError />
+    },
+]
+
+const privateRoutes: RouteObject[] = [
+    {
+        path: PATH.protectedPage,
+        element: (
+            <ProtectedPage />
+        ),
+    },
+]
 
 export const router = createHashRouter([
     {
@@ -72,43 +125,10 @@ export const router = createHashRouter([
         errorElement: <Navigate to={PATH.error} />,
         children: [
             {
-                path: PATH.error,
-                element: <Error404 />,
+                element: <ProtectedRoute />,
+                children: privateRoutes,
             },
-            {
-                path: PATH.adidas,
-                element: <Adidas />,
-            },
-            {
-                path: PATH.puma,
-                element: <Puma />,
-            },
-            {
-                path: PATH.abibas,
-                element: <Abibas />,
-            },
-            {
-                path: PATH.prices,
-                element: <Prices />,
-            },
-            {
-                path: PATH.main,
-                element: <Navigate to={PATH.adidas} />,
-            },
-            {
-                path: PATH.protectedPage,
-                element: (
-                    <ProtectedRoute>
-                        <ProtectedPage />
-                    </ProtectedRoute>
-                ),
-            },
-            {
-                path: PATH.model,
-                element: <Model />,
-                loader: modelLoader,
-                errorElement: <ModelError />
-            },
+            ...publicRoutes,
         ]
     }
 ])
