@@ -8,7 +8,7 @@ import { PATH } from "./routes/Router";
 export const App = () => {
   return (
     <div>
-      <div className={styles.header}><h1>HEADER</h1></div>
+      <div className={styles.header}><h1 className={styles.headerTitle}>HEADER</h1></div>
       <div className={styles.body}>
         <div className={styles.nav}>
           <NavLink to={PATH.adidas} className={({ isActive }) =>

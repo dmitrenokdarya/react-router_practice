@@ -5,7 +5,7 @@
   }
   
   .header {
-    background: linear-gradient(135deg, #000000 0%, #2c3e50 100%);
+    background: linear-gradient(135deg, #0b1957 0%, #a386ac 100%);
     width: 100%;
     height: 100px;
     display: flex;
@@ -24,7 +24,7 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     margin: 0;
-    background: linear-gradient(45deg, #3498db, #2ecc71);
+    background: #f7f4ed;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -35,21 +35,20 @@
   }
 
   .nav {
-    background: linear-gradient(180deg, #ecf0f1 0%, #ffffff 100%);
+    background: #f7f4ed;
     min-height: 400px;
     width: 250px;
     padding: 30px 20px;
-    color: #2c3e50;
     font-size: 1.1rem;
     display: flex;
     flex-direction: column;
     gap: 15px;
-    border-right: 2px solid #bdc3c7;
+    border-right: 2px solid #f7f4ed;
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
   }
   
   .navLink {
-    color: #34495e;
+    color: #0b1957;
     text-decoration: none;
     padding: 12px 20px;
     border-radius: 8px;
@@ -61,25 +60,26 @@
   }
   
   .navLink:hover {
-    background-color: #3498dba1;
-    color: white;
+    background-color: #e8d9ed;
+    color: #0b1957;
     transform: translateX(5px);
   }
   
   .activeNavLink {
+    font-weight: 500;
     padding: 12px 20px;
     border-radius: 8px;
-    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-    color: white;
+    background: #a386ac;
+    color: #f7f4ed;
     text-decoration: none;
     box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
   }
   
   .content {
-    background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+    background: linear-gradient(135deg, #344e88 0%, #2c4270 100%);
     flex: 1;
     min-height: 400px;
-    color: white;
+    color: #f7f4ed;
     padding: 40px;
     overflow-y: auto;
   }
@@ -88,7 +88,7 @@
   .content p {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #bdc3c7;
+    color: #f7f4ed;
     text-align: justify;
     max-width: 800px;
     margin: 0 auto;
@@ -96,7 +96,7 @@
   
 
   .footer {
-    background: linear-gradient(135deg, #000000 0%, #2c3e50 100%);
+    background: linear-gradient(135deg, #203052 0%, #12365a 100%);
     width: 100%;
     height: 120px;
     display: flex;
@@ -115,8 +115,8 @@
   .buttonLink {
     display: inline-block;
     padding: 12px 24px;
-    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-    color: white;
+    background: #f7f4ed;
+    color: #426bc2;
     text-decoration: none;
     border-radius: 8px;
     border: none;
@@ -129,7 +129,8 @@
   }
   
   .buttonLink:hover {
-    background: linear-gradient(135deg, #2980b9 0%, #1c6ea4 100%);
+    color: #f7f4ed;
+    background: #426bc2;
     text-decoration: none;
     transform: translateY(-2px);
   }
@@ -177,7 +178,7 @@
     flex-direction: column;
     align-items: center;
     padding: 40px;
-    background: rgb(216, 216, 216);
+    background: #e8d9ed;
     border-radius: 12px;
     margin: 20px auto;
     max-width: 800px;
@@ -186,14 +187,14 @@
   
   .modelTitle {
     font-size: 2.2rem;
-    color: #2c3e50;
+    color: #0b1957;
     margin-bottom: 10px;
     text-align: center;
   }
   
   .modelCollection {
     font-size: 2 rem;
-    color: #2f4369;
+    color: #426bc2;
     box-shadow: none;
     border: none;
     margin-bottom: 15px;
@@ -202,7 +203,7 @@
   
   .modelPrice {
     font-size: 1.8rem;
-    color: #e74c3c;
+    color: #bb263f;
     font-weight: 700;
     margin-bottom: 30px;
   }
@@ -230,7 +231,7 @@
     text-align: center;
     padding: 40px;
     font-size: 2rem;
-    color: white;
+    color:antiquewhite;
     margin: 20px 0;
     font-weight: 300;
   }
@@ -242,8 +243,8 @@
   }
   
   .thStyle {
-    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-    color: white;
+    background: #426bc2;
+    color: #f7f4ed;
     padding: 15px;
     text-align: left;
     font-weight: 600;
@@ -254,18 +255,14 @@
   
   .tdStyle {
     padding: 12px 15px;
-    border-bottom: 1px solid #ecf0f1;
-    color: #2c3e50;
-    background-color: #bdc3c7;
+    color: #426bc2;
+    background-color: #f7f4ed;
     border-radius: 3px;
   }
   
   .trStyle:nth-child(even) {
-    background-color: #f8f9fa;
+    background-color: #f7f4ed;
   }
-  
-  .trStyle:hover {
-    background-color: #e8f4fc;
-  }
+
   
  

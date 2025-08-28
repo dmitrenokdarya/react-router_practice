@@ -1,7 +1,7 @@
 import { createHashRouter, Link, Navigate } from "react-router-dom";
 import { App } from "../App";
 import { Error404 } from "../components/pages/Error404";
-import { Adidas, adidasArr, Item } from "../components/pages/Adidas";
+import { Adidas, adidasArr } from "../components/pages/Adidas";
 import { Puma, pumaArr } from "../components/pages/Puma";
 import { Abibas } from "../components/pages/Abibas";
 import { Prices } from "../components/pages/Prices";
