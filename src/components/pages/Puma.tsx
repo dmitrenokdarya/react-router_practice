@@ -39,7 +39,7 @@ export const Puma = () => {
             <h2 className={styles.title}>PUMA</h2>
             <div style={{display:'flex', gap:'15px', justifyContent:'center', marginBottom:'30px'}}>
                 {pumaArr.map((puma, index) => (
-                    <Link key={index} to={`/adidas/${puma.id}`} >
+                    <Link key={index} to={`/puma/${puma.id}`} >
                         <img src={puma.picture} alt={puma.model} className={styles.productCard} />
                     </Link>
                 ))}

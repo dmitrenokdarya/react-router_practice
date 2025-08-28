@@ -1,4 +1,4 @@
-import { createBrowserRouter, Link, Navigate } from "react-router-dom";
+import { createHashRouter, Link, Navigate } from "react-router-dom";
 import { App } from "../App";
 import { Error404 } from "../components/pages/Error404";
 import { Adidas, Item } from "../components/pages/Adidas";
@@ -7,15 +7,19 @@ import { Abibas } from "../components/pages/Abibas";
 import { Prices } from "../components/pages/Prices";
 import { Model } from "../components/pages/Model";
 import styles from './../components/Site.module.css'
+import { ProtectedPage } from "../components/pages/ProtectedPage";
+import { ProtectedRoute } from "./ProtectedRoute";
 
 export const PATH = {
+    error: "/error",
     adidas: "/adidas",
     puma: "/puma",
     abibas: "/abibas",
     prices: "/prices",
-    error404: "*",
+    // error404: "*",
     main: "/",
-    model: "/:brand/:id"
+    model: "/:brand/:id",
+    protectedPage: "/protectedPage",
 } as const
 
 
@@ -46,7 +50,6 @@ async function modelLoader({ params }: any) {
 }
 
 export const ModelError = () => {
-   
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <div>Модель не найдена</div>
@@ -58,12 +61,17 @@ export const ModelError = () => {
 };
 
 
-export const router = createBrowserRouter([
+
+export const router = createHashRouter([
     {
         path: "/",
         element: <App />,
-        errorElement: <Error404 />,
+        errorElement: <Navigate to={PATH.error} />,
         children: [
+            {
+                path: PATH.error,
+                element: <Error404 />,
+            },
             {
                 path: PATH.adidas,
                 element: <Adidas />,
@@ -83,6 +91,14 @@ export const router = createBrowserRouter([
             {
                 path: PATH.main,
                 element: <Navigate to={PATH.adidas} />,
+            },
+            {
+                path: PATH.protectedPage,
+                element:(
+                    <ProtectedRoute>
+                        <ProtectedPage />
+                    </ProtectedRoute>
+                ),
             },
             {
                 path: PATH.model,

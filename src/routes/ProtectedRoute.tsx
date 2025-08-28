@@ -1,14 +1,17 @@
 import { ReactNode } from "react";
+import { Navigate } from "react-router-dom";
+import { PATH } from "./Router";
 
 type ProtectedRoutePropsType = {
     children: ReactNode
 }
 
-export const ProtectedRoute = ({children} : ProtectedRoutePropsType):any => {
-    const logged = true
+export const ProtectedRoute = ({ children }: ProtectedRoutePropsType) => {
+    const logged = true; 
     if (!logged) {
-        throw new Error('Ошибка')
+        return <Navigate to={PATH.error} />;
     } else {
-        children
+        return children;
     }
+    
 }

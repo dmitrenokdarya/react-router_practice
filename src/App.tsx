@@ -23,6 +23,9 @@ export const App = () => {
           <NavLink to={PATH.prices}  className={({ isActive }) =>
             isActive ? styles.activeNavLink : styles.navLink
           }>Цены для оптовиков</NavLink>
+          <NavLink to={PATH.protectedPage}  className={({ isActive }) =>
+            isActive ? styles.activeNavLink : styles.navLink
+          }>Тсс... Это секретная страничка</NavLink>
         </div>
         <div className={styles.content}>
           <Outlet />

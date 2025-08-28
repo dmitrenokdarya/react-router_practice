@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import styles from './../Site.module.css';
 
-type Props = {};
-export const Prices = (props: Props) => {
+export const Prices = () => {
     const sneakers = [
         {
             manufacturer: "Adidas",

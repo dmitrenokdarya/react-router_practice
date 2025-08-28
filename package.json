@@ -1,9 +1,12 @@
 {
   "name": "react-router-v6",
+  "homepage": "https://dmitrenokdarya.github.io/react-router_practice",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predeploy": "pnpm run build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview"
@@ -17,6 +20,7 @@
     "@types/react": "19.0.10",
     "@types/react-dom": "19.0.4",
     "@vitejs/plugin-react": "4.3.4",
+    "gh-pages": "^6.3.0",
     "globals": "16.0.0",
     "typescript": "5.7.2",
     "vite": "6.3.1"
